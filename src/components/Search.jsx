@@ -1,17 +1,14 @@
-import React from 'react'
-import {  useLocation  } from 'react-router-dom';
+import React, { useRef } from 'react'
 const closeSearch=()=>{
     document.querySelector('.search').classList.remove("active")
 }
 
 
 export default function Search() {
-
-  const location = useLocation();
-  console.log(location.pathname);
+  const name = useRef()
   return (
     <div className='search'> 
-      <input type="text" placeholder='Search...' />
+      <input type="text" ref={name} placeholder='Search...' />
       <span onClick={closeSearch} className='search-close'><i className="bi bi-x-circle"></i></span>
     </div>
   )
